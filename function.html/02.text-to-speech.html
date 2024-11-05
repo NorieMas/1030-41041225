@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>02.text-to-speech.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="container mt-5 p-5" style="border:1px red solid">
+        <h1>文字轉語音</h1>
+        <h4><a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" target="_blank">套件官網</a></h4>
+
+        <h3>範例程式碼</h3>
+        <pre><code>
+// 使用 Web Speech API 將文字轉換為語音
+function speakText(text) {
+    const msg = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(msg);
+}
+
+// 點擊按鈕時執行
+document.getElementById('speakButton').addEventListener('click', () => {
+    const text = document.getElementById('textInput').value;
+    speakText(text);
+});
+        </code></pre>
+
+        <h3>效果展示</h3>
+        <div class="mb-3">
+            <label for="textInput" class="form-label">請輸入文字：</label>
+            <input type="text" id="textInput" class="form-control" placeholder="例如：你好，這是文字轉語音的示例">
+        </div>
+        <button id="speakButton" class="btn btn-primary">播放語音</button>
+    </div>
+
+    <script>
+        // 使用 Web Speech API 將文字轉換為語音
+        function speakText(text) {
+            const msg = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(msg);
+        }
+
+        // 點擊按鈕時執行
+        document.getElementById('speakButton').addEventListener('click', () => {
+            const text = document.getElementById('textInput').value;
+            speakText(text);
+        });
+    </script>
+
+    <script src="../navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
